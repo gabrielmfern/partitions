@@ -5,6 +5,32 @@ ACCENT_COLOR = '#96d0e5'
 SECONDARY_COLOR = '#e5ab96'
 TERTIARY_COLOR = '#ffffff'
 
+class Thumbnail(Scene):
+    def set_background(self):
+        self.background = FullScreenRectangle()
+        self.background.set_fill(BACKGROUD_COLOR, 1)
+
+    def construct(self):
+        self.set_background()
+
+        self.partitions_2_10 = VGroup(
+            Tex('9+1'),
+            Tex('8+2'),
+            Tex('7+3'),
+            Tex('6+4'),
+            Tex('5+5'),
+            Tex('4+6'),
+            Tex('3+7'),
+            Tex('2+8'),
+            Tex('1+9')
+        )
+        for tex in self.partitions_2_10:
+            tex.scale(1.2)
+        self.partitions_2_10.set_color(ACCENT_COLOR)
+        align(self.partitions_2_10, DOWN + RIGHT)
+        self.partitions_2_10.move_to(ORIGIN)
+        self.add(self.partitions_2_10)
+
 class Presentation(Scene):
     def set_background(self):
         self.background = FullScreenRectangle()
